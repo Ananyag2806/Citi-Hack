@@ -22,7 +22,5 @@ RUN pip3 install -r requirements.txt
 # copying everything over
 COPY . .
 
-ENTRYPOINT["streamlit", "run"]
-
 # run app
-CMD ["optimizer.py"]
+CMD streamlit run optimizer.py
