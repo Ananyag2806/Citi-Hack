@@ -17,7 +17,7 @@ st.title("Citi Portfolio Optimizer")
 #     </style>
 # """, unsafe_allow_html=True)
 
-mf = pd.read_csv(r"E:\Citi Hack\data.csv")
+mf = pd.read_csv("data.csv")
 
 tickers = st.multiselect(
     'Choose the stocks you want to analyze',
