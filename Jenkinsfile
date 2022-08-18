@@ -20,7 +20,7 @@ pipeline {
                 sh 'pip install opencv-python'
                 sh 'pip install streamlit'
                 sh 'pip list'
-                sh 'streamlit run human_color_labeling.py'
+                sh 'streamlit run optimizer.py'
                 echo 'Testing done!'
             }
         }
