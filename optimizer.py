@@ -7,7 +7,7 @@ import yfinance as yf
 st.set_page_config(page_title="optimizer",
                    page_icon="📈", layout="wide", initial_sidebar_state="auto")
 st.image("citi-logo-white.png", width=100)
-st.title("Citi Portfolio Optimizer")
+st.title("Citi Portfolio Optimizer using webhook")
 
 # st.markdown(f"""
 #     <style>
