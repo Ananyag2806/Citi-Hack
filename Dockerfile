@@ -1,20 +1,33 @@
-# Use an official Python runtime as a parent image.
-FROM python:3.7-alpine 
-# Create an /app folder inside the container.
-RUN mkdir /app
-# Set the working directory inside the container to /app.
-WORKDIR /app
-# Port issues
-# Copy files from the current directory into the container's /app directory.
-COPY . /app
-# Install any needed packages specified in requirements.txt.
-RUN apk add g++ gcc python3-dev libffi-dev musl-dev zlib-dev jpeg-dev
+# base image
+FROM python:3.10.0
 
-RUN pip install --upgrade pip
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-# Make port 8090 available to the world outside this container.
-EXPOSE 8090
-# Run main.py when the container launches.
+WORKDIR /app
+
+# # streamlit-specific commands
+# RUN mkdir -p /root/.streamlit
+# RUN bash -c 'echo -e "\
+# [general]\n\
+# email = \"\"\n\
+# " > /root/.streamlit/credentials.toml'
+# RUN bash -c 'echo -e "\
+# [server]\n\
+# enableCORS = false\n\
+# " > /root/.streamlit/config.toml'
+
+
+
+
+# copy over and install packages
+COPY requirements.txt ./requirements.txt
+RUN pip3 install -r requirements.txt
+
+# exposing default port for streamlit
+EXPOSE 8501
+
+# copying everything over
+COPY . /app
+
 ENTRYPOINT ["streamlit", "run"]
 
+# run app
 CMD ["optimizer.py"]
