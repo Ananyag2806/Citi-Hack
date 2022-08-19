@@ -54,7 +54,7 @@ def calculate_variables(df):
 def calculate_eff_frontier(df, annual_ret, cov_annual):
 
     NUM_ASSETS = len(df.columns)
-    NUM_PORTFOLIOS = 50000
+    NUM_PORTFOLIOS = 500000
 
     # empty lists to store returns, volatility and weights of imiginary portfolios
     port_returns = []
