@@ -7,7 +7,7 @@ import yfinance as yf
 st.set_page_config(page_title="optimizer",
                    page_icon="📈", layout="wide", initial_sidebar_state="auto")
 st.image("citi-logo-white.png", width=100)
-st.title("Citi Portfolio Optimizer 📈")
+st.title("Citi Portfolio Optimizer 💲📈")
 
 # st.markdown(f"""
 #     <style>
@@ -54,7 +54,7 @@ def calculate_variables(df):
 def calculate_eff_frontier(df, annual_ret, cov_annual):
 
     NUM_ASSETS = len(df.columns)
-    NUM_PORTFOLIOS = 500000
+    NUM_PORTFOLIOS = 50000
 
     # empty lists to store returns, volatility and weights of imiginary portfolios
     port_returns = []
